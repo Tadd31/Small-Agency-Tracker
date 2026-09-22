@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-orange-brand: #f5720a;
+  --color-orange-hover: #d35d00;
+  --color-near-black: #0a0a0a;
+  --color-off-white: #fafafa;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] text-zinc-100 font-sans antialiased;
+    background-color: #0a0a0a;
+  }
+}
+
+/* Custom styles for high-fidelity startup aesthetic */
+.font-display {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.eyebrow-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f5720a;
+}
+
+/* Custom Print optimization */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+
+  .print-card {
+    background: white !important;
+    border: 1px solid #e4e4e7 !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  .print-text {
+    color: black !important;
+  }
+
+  .print-border {
+    border-color: #d4d4d8 !important;
+  }
+
+  /* Ensure page breaks are handled nicely */
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+/* ==========================================================================
+   LIGHT MODE THEME OVERRIDES
+   UI Specialist Design: White background with crisp warm-slate panels,
+   charcoal/black text (#09090b), and vibrant brand orange (#F5720A) titles & accents.
+   ========================================================================== */
+html.light-mode,
+body.light-mode,
+.light-mode {
+  background-color: #f8fafc !important; /* Soft Slate-50 base canvas */
+  color: #09090b !important; /* Deep charcoal text */
+}
+
+/* Page containers & App background */
+.light-mode .min-h-screen,
+.light-mode main {
+  background-color: #f8fafc !important;
+  color: #09090b !important;
+}
+
+/* Header & Sub-Nav Bar */
+.light-mode header {
+  background-color: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-mode nav {
+  background-color: #ffffff !important;
+  border-color: #e4e4e7 !important;
+}
+
+/* Primary Card Panels & Containers (e.g. Ledger, Setup, Reports, Modals) */
+.light-mode .bg-\[\#0a0a0a\],
+.light-mode .bg-\[\#121316\],
+.light-mode .bg-\[\#0d0d0e\],
+.light-mode .bg-black,
+.light-mode .bg-zinc-950,
+.light-mode .bg-zinc-900 {
+  background-color: #ffffff !important;
+  color: #09090b !important;
+  border-color: #e4e4e7 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Gradient Containers in Light Mode */
+.light-mode .bg-gradient-to-r,
+.light-mode .bg-gradient-to-l,
+.light-mode .bg-gradient-to-t,
+.light-mode .bg-gradient-to-b,
+.light-mode .bg-gradient-to-tr,
+.light-mode .bg-gradient-to-br,
+.light-mode .bg-gradient-to-tl,
+.light-mode .bg-gradient-to-bl,
+.light-mode [class*="bg-gradient-to-"] {
+  background-image: linear-gradient(to right, #ffffff, #f8fafc) !important;
+  background-color: #ffffff !important;
+  color: #09090b !important;
+  border-color: #e4e4e7 !important;
+}
+
+/* Sub-Panels, Filter Containers & Inner Cards */
+.light-mode .bg-zinc-950\/10,
+.light-mode .bg-zinc-950\/20,
+.light-mode .bg-zinc-950\/30,
+.light-mode .bg-zinc-950\/40,
+.light-mode .bg-zinc-950\/50,
+.light-mode .bg-zinc-950\/60,
+.light-mode .bg-zinc-950\/70,
+.light-mode .bg-zinc-950\/80,
+.light-mode .bg-zinc-950\/90,
+.light-mode .bg-zinc-900\/10,
+.light-mode .bg-zinc-900\/20,
+.light-mode .bg-zinc-900\/30,
+.light-mode .bg-zinc-900\/40,
+.light-mode .bg-zinc-900\/50,
+.light-mode .bg-zinc-900\/60,
+.light-mode .bg-zinc-900\/70,
+.light-mode .bg-zinc-900\/80,
+.light-mode .bg-zinc-900\/90,
+.light-mode .bg-zinc-800,
+.light-mode .bg-zinc-800\/10,
+.light-mode .bg-zinc-800\/20,
+.light-mode .bg-zinc-800\/30,
+.light-mode .bg-zinc-800\/40,
+.light-mode .bg-zinc-800\/50,
+.light-mode .bg-zinc-800\/60,
+.light-mode .bg-zinc-800\/70,
+.light-mode .bg-zinc-800\/80,
+.light-mode .bg-zinc-800\/90 {
+  background-color: #f8fafc !important; /* Soft Slate-50 panel background */
+  color: #09090b !important;
+  border-color: #e4e4e7 !important;
+}
+
+/* Soft Orange Highlighted Fills / Badges */
+.light-mode .bg-\[\#F5720A\]\/10,
+.light-mode .bg-\[\#F5720A\]\/5,
+.light-mode .bg-\[\#F5720A\]\/20,
+.light-mode .bg-orange-500\/10,
+.light-mode .bg-orange-500\/15 {
+  background-color: #fff7ed !important; /* Soft warm orange-50 tint */
+  border-color: #fed7aa !important; /* Orange-200 border */
+  color: #c2410c !important; /* Dark orange text */
+}
+
+/* Amber Banners & Buttons in Light Mode */
+.light-mode .bg-amber-500\/10,
+.light-mode .bg-amber-500\/15,
+.light-mode .bg-amber-500\/20 {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #92400e !important;
+}
+
+.light-mode .text-amber-300,
+.light-mode .text-amber-200,
+.light-mode .text-amber-100 {
+  color: #92400e !important;
+}
+
+/* Emerald Banners & Buttons in Light Mode */
+.light-mode .bg-emerald-500\/10,
+.light-mode .bg-emerald-500\/20 {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #065f46 !important;
+}
+
+.light-mode .text-emerald-300,
+.light-mode .text-emerald-200,
+.light-mode .text-emerald-100,
+.light-mode .hover\:text-emerald-100:hover {
+  color: #047857 !important;
+}
+
+/* Red Banners & Buttons in Light Mode */
+.light-mode .bg-red-500\/10,
+.light-mode .bg-red-500\/20 {
+  background-color: #fef2f2 !important;
+  border-color: #fecaca !important;
+  color: #991b1b !important;
+}
+
+.light-mode .text-red-300,
+.light-mode .text-red-200,
+.light-mode .text-red-100 {
+  color: #b91c1c !important;
+}
+
+/* Active solid orange buttons */
+.light-mode .bg-\[\#F5720A\],
+.light-mode .bg-orange-500,
+.light-mode .bg-orange-600,
+.light-mode .active-toggle {
+  background-color: #F5720A !important;
+  color: #ffffff !important;
+}
+
+.light-mode .bg-\[\#F5720A\] *,
+.light-mode .bg-orange-500 *,
+.light-mode .bg-orange-600 *,
+.light-mode .active-toggle * {
+  color: #ffffff !important;
+}
+
+.light-mode .bg-\[\#F5720A\]:hover,
+.light-mode .hover\:bg-\[\#F5720A\]:hover,
+.light-mode .active-toggle:hover {
+  background-color: #ea580c !important;
+}
+
+/* Entry Mode Toggle Pill Component (Dark Mode & Light Mode) */
+.entry-mode-toggle {
+  background-color: #18181b !important;
+  border-color: #27272a !important;
+}
+
+.entry-mode-toggle .active-toggle {
+  background-color: #F5720A !important;
+  color: #09090b !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 3px rgba(245, 114, 10, 0.25) !important;
+}
+
+.entry-mode-toggle .active-toggle * {
+  color: #09090b !important;
+}
+
+.entry-mode-toggle .inactive-toggle {
+  color: #a1a1aa !important;
+  background-color: transparent !important;
+}
+
+.entry-mode-toggle .inactive-toggle:hover {
+  color: #f4f4f5 !important;
+  background-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Entry Mode Toggle in Light Mode */
+.light-mode .entry-mode-toggle {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-mode .entry-mode-toggle .active-toggle {
+  background-color: #F5720A !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 4px rgba(245, 114, 10, 0.35) !important;
+}
+
+.light-mode .entry-mode-toggle .active-toggle * {
+  color: #ffffff !important;
+}
+
+.light-mode .entry-mode-toggle .inactive-toggle {
+  color: #475569 !important;
+  background-color: transparent !important;
+}
+
+.light-mode .entry-mode-toggle .inactive-toggle:hover {
+  color: #0f172a !important;
+  background-color: #e2e8f0 !important;
+}
+
+/* Weekly Matrix Grid Component Styles */
+.matrix-cell-input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.light-mode .matrix-cell-input.hours-empty {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #94a3b8 !important;
+}
+
+.light-mode .matrix-cell-input.hours-empty:focus {
+  border-color: #F5720A !important;
+  box-shadow: 0 0 0 1px #F5720A !important;
+  color: #09090b !important;
+}
+
+.light-mode .matrix-cell-input.hours-entered {
+  background-color: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  color: #09090b !important;
+  font-weight: 700 !important;
+}
+
+.light-mode .matrix-cell-input.hours-target {
+  background-color: #ecfdf5 !important;
+  border-color: #6ee7b7 !important;
+  color: #065f46 !important;
+  font-weight: 700 !important;
+}
+
+.light-mode .matrix-cell-input.cell-dirty {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 1px #f59e0b !important;
+}
+
+.light-mode .task-narrative-popover {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light-mode .task-narrative-popover textarea {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #09090b !important;
+}
+
+/* Buttons in Light Mode */
+.light-mode button {
+  color: #09090b;
+}
+
+.light-mode button.bg-zinc-800,
+.light-mode button.bg-zinc-700,
+.light-mode button.bg-zinc-900,
+.light-mode .bg-zinc-800 button:not(.active-toggle):not([class*="bg-orange"]):not([class*="bg-[#F5720A]"]):not([class*="bg-amber"]):not([class*="bg-red"]):not([class*="bg-emerald"]),
+.light-mode .bg-zinc-900 button:not(.active-toggle):not([class*="bg-orange"]):not([class*="bg-[#F5720A]"]):not([class*="bg-amber"]):not([class*="bg-red"]):not([class*="bg-emerald"]) {
+  background-color: #f1f5f9 !important;
+  color: #09090b !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-mode button.bg-zinc-800:hover,
+.light-mode button.bg-zinc-700:hover,
+.light-mode button.bg-zinc-900:hover {
+  background-color: #e2e8f0 !important;
+  color: #09090b !important;
+}
+
+/* Typography Overrides */
+.light-mode .text-zinc-100,
+.light-mode .text-zinc-200,
+.light-mode .text-zinc-300,
+.light-mode .text-zinc-50,
+.light-mode .text-zinc-700,
+.light-mode .text-zinc-800,
+.light-mode .text-zinc-900,
+.light-mode .text-white {
+  color: #09090b !important;
+}
+
+.light-mode .text-zinc-400,
+.light-mode .text-zinc-500 {
+  color: #52525b !important; /* Medium dark zinc for readable text */
+}
+
+.light-mode .text-zinc-600 {
+  color: #3f3f46 !important;
+}
+
+/* Orange Titles & Accents */
+.light-mode .text-\[\#F5720A\],
+.light-mode .text-orange-500,
+.light-mode .text-orange-600 {
+  color: #F5720A !important;
+}
+
+.light-mode .eyebrow-label {
+  color: #ea580c !important;
+}
+
+/* Borders */
+.light-mode .border-zinc-900,
+.light-mode .border-zinc-900\/50,
+.light-mode .border-zinc-900\/40,
+.light-mode .border-zinc-800,
+.light-mode .border-zinc-800\/90,
+.light-mode .border-zinc-800\/80,
+.light-mode .border-zinc-800\/50,
+.light-mode .border-zinc-800\/40,
+.light-mode .border-zinc-700,
+.light-mode .border-zinc-700\/80,
+.light-mode .divide-zinc-900,
+.light-mode .divide-zinc-800 {
+  border-color: #e4e4e7 !important;
+}
+
+/* Form Controls */
+.light-mode input[type="text"],
+.light-mode input[type="date"],
+.light-mode input[type="number"],
+.light-mode input[type="email"],
+.light-mode input[type="password"],
+.light-mode select,
+.light-mode textarea {
+  background-color: #ffffff !important;
+  color: #09090b !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-mode input[type="date"] {
+  color-scheme: light !important;
+}
+
+.light-mode input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0) !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+/* Ensure calendar icons in forms/inputs are crisp black in light mode */
+.light-mode .relative > svg.lucide-calendar,
+.light-mode input[type="date"] ~ svg,
+.light-mode input[type="date"] + svg,
+.light-mode svg.lucide-calendar.text-zinc-500,
+.light-mode svg.lucide-calendar.text-zinc-400 {
+  color: #000000 !important;
+  stroke: #000000 !important;
+  opacity: 1 !important;
+}
+
+.light-mode input::placeholder,
+.light-mode textarea::placeholder {
+  color: #71717a !important;
+}
+
+.light-mode option {
+  background-color: #ffffff !important;
+  color: #09090b !important;
+}
+
+/* Tables */
+.light-mode table {
+  color: #09090b !important;
+}
+
+.light-mode tr:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.light-mode th {
+  color: #3f3f46 !important;
+  background-color: #f8fafc !important;
+  border-color: #e4e4e7 !important;
+}
+
+.light-mode td {
+  border-color: #e4e4e7 !important;
+}
+
+/* Modal Backdrops */
+.light-mode .bg-black\/80,
+.light-mode .bg-black\/70,
+.light-mode .bg-black\/60 {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+/* Recharts Tooltips in Light Mode */
+.light-mode .recharts-default-tooltip {
+  background-color: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  color: #09090b !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
